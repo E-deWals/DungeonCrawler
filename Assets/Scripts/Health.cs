@@ -6,12 +6,17 @@ namespace Health
     public class Health : MonoBehaviour
     {
         [SerializeField] private float maxHealth;
-        [SerializeField] private float currentHealth;
+        
+        private float currentHealth;
 
-        public Action<float, float> OnHealthChanged;
-        public Action OnDeath;
+        public event Action<float, float> OnHealthChanged;
+        public event Action OnDeath;
 
+        private void Start()
+        {
+            CurrentHealth = maxHealth;
 
+        }
         public float CurrentHealth
         {
             set
@@ -25,12 +30,17 @@ namespace Health
                 {
                     currentHealth = maxHealth;
                 }
-                OnHealthChanged?.Invoke(currentHealth, value);
+                OnHealthChanged?.Invoke(currentHealth, maxHealth);
             }
             get
             {
                 return currentHealth;
             }
+        }
+
+        public void ChangeHealth(float value)
+        {
+            CurrentHealth += value;
         }
     }
 }

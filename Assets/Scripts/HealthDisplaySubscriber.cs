@@ -1,16 +1,25 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HealthDisplaySubscriber : MonoBehaviour
+namespace Health
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class HealthDisplaySubscriber : MonoBehaviour
     {
-        
-    }
+        [SerializeField] Slider healthSlider;
+        [SerializeField] Health health;
+        public void DisplayHP( float currentHealth, float maxHealth)
+        {
+            healthSlider.value = currentHealth / maxHealth;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void OnEnable()
+        {
+            health.OnHealthChanged += DisplayHP;
+        }
+
+        private void OnDisable()
+        {
+            health.OnHealthChanged -= DisplayHP;
+        }
     }
 }
