@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Health
 {
-    public class Health : MonoBehaviour
+    public class HealthContainer : MonoBehaviour
     {
         [SerializeField] private float maxHealth;
         

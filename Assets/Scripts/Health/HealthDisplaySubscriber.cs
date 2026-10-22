@@ -6,7 +6,7 @@ namespace Health
     public class HealthDisplaySubscriber : MonoBehaviour
     {
         [SerializeField] Slider healthSlider;
-        [SerializeField] Health health;
+        [SerializeField] HealthContainer health;
         public void DisplayHP( float currentHealth, float maxHealth)
         {
             healthSlider.value = currentHealth / maxHealth;

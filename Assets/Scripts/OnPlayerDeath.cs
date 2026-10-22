@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Health {
     public class OnPlayerDeath : MonoBehaviour
     {
-        [SerializeField] private Health health;
+        [SerializeField] private HealthContainer health;
 
         public void OnDeath()
         {
