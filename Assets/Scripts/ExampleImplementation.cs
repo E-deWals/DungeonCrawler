@@ -4,9 +4,9 @@ namespace EventBus
 {
     public class ExampleImplementationPublisher : MonoBehaviour
     {
-        public void onXPDropped(int droppedXP)
+        public void OnXPPickedUp(int xp)
         {
-            EventBus<GetXPEvent>.Publish(new GetXPEvent(droppedXP));
+            EventBus<GetXPEvent>.Publish(new GetXPEvent(xp));
         }
     }
 

@@ -7,7 +7,7 @@ namespace Health
     {
         [SerializeField] private float maxHealth;
         
-        private float currentHealth;
+        [SerializeField]private float currentHealth;
 
         public event Action<float, float> OnHealthChanged;
         public event Action OnDeath;
@@ -22,7 +22,7 @@ namespace Health
             set
             {
                 currentHealth = value;
-                if (currentHealth < 0)
+                if (currentHealth <= 0f)
                 {
                     OnDeath?.Invoke();
                 }
