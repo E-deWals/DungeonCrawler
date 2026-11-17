@@ -5,9 +5,10 @@ namespace Health
 {
     public class HealthContainer : MonoBehaviour
     {
+        [SerializeField] private int healthID = 1;
         [SerializeField] private float maxHealth;
         
-        [SerializeField]private float currentHealth;
+        [SerializeField] private float currentHealth;
 
         public event Action<float, float> OnHealthChanged;
         public event Action OnDeath;
